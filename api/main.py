@@ -12,6 +12,11 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from starlette.responses import JSONResponse
 import tempfile
 import uuid
+from fastapi import FastAPI
+app = FastAPI()
+import os
+if os.getenv("VERCEL"):
+    app.root_path = "/api"
 
 # Initialize FastAPI app
 app = FastAPI(
